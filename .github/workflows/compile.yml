@@ -30,7 +30,5 @@ jobs:
         dotnet-version: '6'
     - name: Setup cake
       run: dotnet tool install -g cake.tool && dotnet tool restore 
-    - name: Download externals
-      run: dotnet cake --target=externals-download
     - name: Compile
-      run: dotnet cake --target=everything --skipExternals=all
+      run: dotnet cake --target=externals-macos

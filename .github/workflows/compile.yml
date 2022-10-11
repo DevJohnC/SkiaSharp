@@ -39,5 +39,5 @@ jobs:
       with:
         name: macOS-native-libs
         path: |
-          ${{ github.workspace }}/SkiaSharp/SkiaSharp/output/native/osx/libSkiaSharp.dylib
-          ${{ github.workspace }}/SkiaSharp/SkiaSharp/output/native/osx/libHarfBuzzSharp.dylib
+          ${{ github.workspace }}/output/native/osx/libSkiaSharp.dylib
+          ${{ github.workspace }}/output/native/osx/libHarfBuzzSharp.dylib

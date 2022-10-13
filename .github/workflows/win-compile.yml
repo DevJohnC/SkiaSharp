@@ -13,14 +13,9 @@ jobs:
       with:
         submodules: true
     - name: Setup Windows SDK 16299
-      uses: GuillaumeFalourd/setup-windows10-sdk-action@v1.7
+      uses: fbactions/setup-winsdk@v1
       with:
-        sdk-version: 16299
-    - name: Build new SDK
-      shell: bash
-      run: |
-        cmake -DCMAKE_SYSTEM_VERSION=10.0.16299.0
-        cmake --build .
+          winsdk-build-version: 16299
     - name: Setup Java JDK
       uses: actions/setup-java@v3
       with:

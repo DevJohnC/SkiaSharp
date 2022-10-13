@@ -1,0 +1,38 @@
+name: Compile Native
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-macos:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Setup Java JDK
+      uses: actions/setup-java@v3
+      with:
+        java-version: 17
+        distribution: corretto
+        java-package: jdk
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '6'
+    - name: Setup cake
+      run: dotnet tool install -g cake.tool && dotnet tool restore 
+    - name: Compile
+      run: dotnet cake --target=externals-windows
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: windows-native-libs
+        path: |
+          ${{ github.workspace }}/output/native

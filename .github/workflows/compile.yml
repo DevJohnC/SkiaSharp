@@ -2,13 +2,9 @@ name: Compile
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
-  build:
+  build-macos:
 
     runs-on: macos-11
 

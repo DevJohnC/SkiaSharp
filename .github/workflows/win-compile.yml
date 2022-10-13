@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-macos:
+  build-windows:
 
     runs-on: windows-latest
 
@@ -12,6 +12,10 @@ jobs:
     - uses: actions/checkout@v3
       with:
         submodules: true
+    - name: Setup Windows SDK 16299
+      uses: GuillaumeFalourd/setup-windows10-sdk-action@v1.7
+      with:
+        sdk-version: 16299
     - name: Setup Java JDK
       uses: actions/setup-java@v3
       with:
